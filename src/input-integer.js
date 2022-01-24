@@ -1,5 +1,5 @@
 module.exports = inputInteger
 
 function inputInteger(){
-    return 'input-integer';
+    return 'Hi<input type:text><button>submit</button>';
 }
