@@ -1,15 +1,18 @@
 const inputInteger = require('..')
 const mytheme = require('./mytheme.js')
-const x = inputInteger()
-const css = mytheme('yellow')
+const theForm = inputInteger()
+const css = mytheme('white')
 
 
-document.title = 'hellow world';
+document.title = 'Hello World!';
 document.body.innerHTML =  `
-<h1>hellow</h1>
-<hr>
-<div class="example">
- ${x}
-</div>
+<h1>Hello World!</h1>
+
+<div class="form-container">
+    <div class="form">
+    ${theForm}
+    </div>
+</div>   
 <style>${css}</style>
+
 `
