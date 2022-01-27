@@ -1,6 +1,10 @@
 module.exports = inputInteger
+const csjs = require('csjs-inject')
+const parser = document.createElement('div')
 
 function inputInteger(){
-    return '<label>Your Name <br><input type="text"><br></label>'+
-    '<input type="submit" value="SUBMIT">';
+    parser.innerHTML = `<input type="number" placeholder="number">`
+    const element = parser.children[0]
+    return element
+
 }

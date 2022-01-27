@@ -24,5 +24,8 @@
   "homepage": "https://github.com/judy50024/input-integer#readme",
   "devDependencies": {
     "budo": "^11.6.4"
+  },
+  "dependencies": {
+    "csjs-inject": "^1.0.1"
   }
 }
