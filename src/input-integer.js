@@ -1,10 +1,17 @@
-module.exports = inputInteger
 const csjs = require('csjs-inject')
-const parser = document.createElement('div')
+const bel = require('bel')
+const { getCurrentInstance } = require('vue')
+
+module.exports = inputInteger
 
 function inputInteger(){
-    parser.innerHTML = `<input type="number" placeholder="number">`
-    const element = parser.children[0]
-    return element
-
+    return bel `<input type="number" class=${css.inputInteger} placeholder="number">`
 }
+
+const css = csjs`
+.inputInteger{
+    background-color: lightgreen;
+}
+`
+
+
