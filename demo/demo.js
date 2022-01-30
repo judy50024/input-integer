@@ -2,7 +2,7 @@ const csjs = require('csjs-inject')
 const inputInteger = require('..')
 const bel = require('bel')
 const mytheme = require('./mytheme.js')
-const theForm = inputInteger()
+// const theForm = inputInteger()
 // const css = mytheme('white')
 
 const parser = document.createElement('div')
@@ -23,7 +23,7 @@ return page
 function listen(message){
     const {type, body} = message
     if(type === 'update')output.textContent = body
-}
+    }
 }
 
 
