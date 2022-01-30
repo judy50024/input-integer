@@ -8,43 +8,40 @@ const theForm = inputInteger()
 const parser = document.createElement('div')
 
 function demo(){
-
+    const output = bel `<div class=${css.output}>0</div>`
     const page = bel `<div class=${css.demo}>
     <h1>input integer demo</h1>
+    ${output}
     <div class=${css.container}>
-        ${inputInteger()}
-        ${inputInteger()}
-        ${inputInteger()}
+        ${inputInteger({value: 1, placeholder: 'integer'}, listen)}
+        ${inputInteger({value: 2, placeholder: 'integer'}, listen)}
+        ${inputInteger({value: 3, placeholder: 'integer'}, listen)}
     </div>
 </div>`
 return page
-document.body.appendChild(page)
+//message = {type: 'update', body: 5}
+function listen(message){
+    const {type, body} = message
+    if(type === 'update')output.textContent = body
+}
 }
 
-const css = csjs`
-    .demo{
-        border: solid 1px red;
-        margin: 2rem;
-    }
 
-    .container{
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-    }
-`
+
+const css = csjs`
+.demo {
+  margin: 20px;
+  padding: 20px;
+  border: 2px dashed green;
+}
+.output {
+  width: auto;
+  border: 1px solid red;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+}`
 
 document.body.appendChild(demo())
-
-// document.title = 'Hello World!';
-// document.body.innerHTML =  `
-// <h1>Hello World!</h1>
-
-// <div class="form-container">
-//     <div class="form">
-//     ${theForm}
-//     </div>
-// </div>   
-// <style>${css}</style>
-
-// `
