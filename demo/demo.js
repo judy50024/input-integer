@@ -1,3 +1,20 @@
+// set html
+const { documentElement: html, head, body } = document
+
+html.setAttribute('lang', 'en')
+
+const meta1 = document.createElement('meta')
+meta1.setAttribute('http-equiv', 'X-UA-Compatible')
+meta1.setAttribute('content', 'IE=edge')
+
+const meta2 = document.createElement('meta')
+meta2.setAttribute('name', 'viewport')
+meta2.setAttribute('content', 'width=device-width, initial-scale=1.0')
+
+head.append(meta1, meta2)
+
+
+// demo.js start
 const csjs = require('csjs-inject')
 const inputInteger = require('..')
 const bel = require('bel')
@@ -5,7 +22,9 @@ const mytheme = require('./mytheme.js')
 // const theForm = inputInteger()
 // const css = mytheme('white')
 
+
 const parser = document.createElement('div')
+
 
 function demo(){
     const output = bel `<div class=${css.output}>0</div>`
