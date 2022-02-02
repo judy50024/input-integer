@@ -19,9 +19,8 @@ const csjs = require('csjs-inject')
 const inputInteger = require('..')
 const bel = require('bel')
 const mytheme = require('./mytheme.js')
-// const theForm = inputInteger()
-// const css = mytheme('white')
 
+const state = {}
 
 const parser = document.createElement('div')
 
@@ -38,10 +37,17 @@ function demo(){
     </div>
 </div>`
 return page
-//message = {type: 'update', body: 5}
 function listen(message){
-    const {type, body} = message
-    if(type === 'update')output.textContent = body
+    const {from, type, body} = message
+    if(type === 'update'){
+        if(!state[from]) state[from] = {value: Number(body)}
+        else state[from].value = Number(body)
+
+        const values = Object.keys(state).map(from => state[from].value)
+        const summary = values.reduce((sum, x) => sum + x, 0)
+
+        output.textContent = summary
+        }
     }
 }
 

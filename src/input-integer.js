@@ -3,11 +3,15 @@ const bel = require('bel')
 
 module.exports = inputInteger
 
+var id = 0
+
 function inputInteger(data, notify){
+    const name = `inputInteger` + id++
+    id = id + 1
     const {value = 0, placeholder = `number`} = data
     const input = bel `<input class=${css.inputInteger} type='number' placeholder=${placeholder} value=${value}>`
     input.onchange = event => {
-        notify({type: 'update', body: input.value})
+        notify({from: name, type: 'update', body: input.value})
     }
     return input
 }
